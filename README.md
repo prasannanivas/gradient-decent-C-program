@@ -1,8 +1,8 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<math.h>
-//for random number generation
-int randomgen (int a, int b)
+int
+randomgen (int a, int b)
 {
   return rand () % (b);
 }
@@ -11,15 +11,15 @@ void
 main ()
 {
   float summ1, summ2, sumbai;
-  int x1[50] = { 0 };
-  int x2[50] = { 0 };
+  int x1[70] = { 0 };
+  int x2[70] = { 0 };
   float cost;
   float lr = 0.05;
-  float y_predict[50] = { 0 };
-  float target[50] = { 0 };
+  float y_predict[70] = { 0 };
+  float target[70] = { 0 };
   int bias;
   float m1 = 1, m2 = 2, bai = 1;
-  for (int i = 0; i < 50; i++)
+  for (int i = 0; i < 70; i++)
     {
       x1[i] = randomgen (1, 10);
       x2[i] = randomgen (1, 10);
@@ -31,7 +31,7 @@ main ()
   scanf ("%d", &M2);
   printf ("\nEnter bias : ");
   scanf ("%d", &bias);
-  for (int i = 0; i < 50; i++)
+  for (int i = 0; i < 70; i++)
     {
       target[i] = M1 * x1[i] + M2 * x2[i] + bias;
     }
@@ -68,4 +68,11 @@ main ()
       printf ("\n Cost : %f \n m1 : %f\n m2 : %f\nBias : %f", cost, m1, m2,bai);
   }
   printf("\nDid you enter %f , %f , %f",m1,m2,bai);
+  printf("\n***************Predictions******************\noriginal     |       predicted\n");
+  for(int i=51;i<70;i++)
+  {
+    printf("%f      |       %f\n",target[i], m1*x1[i] + m2*x2[i] + bai);
+  }
 }
+
+
